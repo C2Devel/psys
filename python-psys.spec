@@ -4,7 +4,7 @@ A Python module with a set of basic tools for writing system utilities}
 
 Name:    python-%project_name
 Version: 0.4
-Release: 3.CROC2%{?dist}
+Release: 3.ROCKIT3%{?dist}
 Summary: A Python module with a set of basic tools for writing system utilities
 
 Group:   Development/Languages
