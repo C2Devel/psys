@@ -4,13 +4,17 @@ A Python module with a set of basic tools for writing system utilities}
 
 Name:    python-%project_name
 Version: 0.4
-Release: 3.ROCKIT3%{?dist}
+Release: 3.ROCKIT4%{?dist}
 Summary: A Python module with a set of basic tools for writing system utilities
 
 Group:   Development/Languages
 License: MIT
 URL:     http://github.com/KonishchevDmitry/%project_name
 Source:  http://pypi.python.org/packages/source/p/%project_name/%project_name-%{version}.tar.gz
+
+%if 0%{?redos} == 8
+Patch0:  psys-python3.9.patch
+%endif
 
 BuildArch:     noarch
 
@@ -31,6 +35,9 @@ Conflicts: python36-%project_name
 %prep
 %setup -n %project_name-%version -q
 
+%if 0%{?redos} == 8
+%patch0 -p1
+%endif
 
 %build
 %{py3_build}
@@ -50,6 +57,9 @@ Conflicts: python36-%project_name
 
 
 %changelog
+* Tue Jun 23 2026 Linar Nasyyrov <lnasyyrov@k2.cloud> - 0.4-3.ROCKIT4
+- Add RedOS 8.0 support
+
 * Tue Jan 23 2023 Andrey Kulaev <adkulaev@gmail.com> - 0.4-3
 - Add centos 8.4 support
 
